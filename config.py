@@ -13,23 +13,26 @@ OPENROUTER_API_URL = "https://openrouter.ai/api/v1/chat/completions"
 # Free TEXT (non-vision) OpenRouter models used to structure the OCR text.
 # OCR is done locally by Tesseract; these models only ever see plain text.
 OPENROUTER_MODEL_ALIASES = {
-    "llama-3.3-70b": "meta-llama/llama-3.3-70b-instruct:free",
-    "qwen-2.5-72b": "qwen/qwen-2.5-72b-instruct:free",
-    "mistral-small": "mistralai/mistral-small-3.1-24b-instruct:free",
-    "gemma-27b": "google/gemma-3-27b-it:free",
-    "deepseek-chat": "deepseek/deepseek-chat:free",
-    "gemma-12b": "google/gemma-3-12b-it:free",
+    "gemma-4-26b":"google/gemma-4-26b-a4b-it:free",
+    "gemma-4-31b":"google/gemma-4-31b-it:free",
+    "nemotron-3-utlra":"nvidia/nemotron-3-ultra-550b-a55b:free",
+    "gpt-oss":"openai/gpt-oss-20b:free"
+    
+    
+    # "llama-3.3-70b": "meta-llama/llama-3.3-70b-instruct:free",
+    # "qwen-2.5-72b": "qwen/qwen-2.5-72b-instruct:free",
+    # "mistral-small": "mistralai/mistral-small-3.1-24b-instruct:free",
+    # "gemma-27b": "google/gemma-3-27b-it:free",
+    # "deepseek-chat": "deepseek/deepseek-chat:free",
+    # "gemma-12b": "google/gemma-3-12b-it:free",
 }
 # Order in which models are tried (first = preferred). Free models can be
 # rate-limited / flaky, so the caller falls through this list on failure.
 OPENROUTER_MODEL_FALLBACK_ORDER = [
-    "llama-3.3-70b",
-    "qwen-2.5-72b",
-    "mistral-small",
-    "gemma-27b",
-    "deepseek-chat",
-    "gemma-12b",
-]
+    "gemma-4-26b",
+    "gemma-4-31b",
+    "nemotron-3-utlra",
+    "gpt-oss"]
 # NOTE: OpenRouter's exact free-model slugs change over time. If a call
 # fails with a 404/"model not found" error, check https://openrouter.ai/models
 # and update the aliases above.
